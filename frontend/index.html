@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Massive Predictor AI</title>
+    <!-- Use Inter font for premium feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="background-mesh"></div>
+
+    <div class="app-container">
+        <header class="glass-header">
+            <h1>Massive<span class="highlight">AI</span></h1>
+            <p>Institutional-grade stock value prediction powered by Machine Learning.</p>
+        </header>
+
+        <main class="prediction-panel glass-panel">
+            <div class="search-section">
+                <input type="text" id="ticker-input" placeholder="Enter US Stock Ticker (e.g. AAPL)" autocomplete="off">
+                <button id="predict-btn">Predict Future</button>
+            </div>
+
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p>Analyzing historical data & running ML models...</p>
+            </div>
+
+            <div id="results" class="hidden">
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <h3>Last Close</h3>
+                        <p id="last-close-val">--</p>
+                    </div>
+                    <div class="metric-card highlight-card">
+                        <h3>14-Day Prediction</h3>
+                        <p id="pred-val">--</p>
+                    </div>
+                    <div class="metric-card">
+                        <h3>Trend</h3>
+                        <p id="trend-val">--</p>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="predictionChart"></canvas>
+                </div>
+                
+                <div class="news-container">
+                    <h3>Latest Market News</h3>
+                    <div id="news-feed" class="news-feed">
+                        <!-- News items injected here -->
+                    </div>
+                </div>
+            </div>
+            
+            <div id="error-message" class="hidden error">
+                <p>Failed to analyze the specified ticker. Ensure it's a valid US equity.</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
